@@ -46,7 +46,7 @@ export default {
         'hero-pattern':
           "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
         'login-pattern':
-          "url(./data/truck.png)" 
+          "url(./assets/truck.png)" 
       },
     },
   },
