@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 import logo from '../assets/logo.svg';
+import { useAuth } from '../context/AuthProvider/useAuth';
+import { useNavigate } from 'react-router-dom';
+import { message } from 'antd';
 
 const Login = () => {
+  const auth = useAuth();
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
+  const handleLoginUser = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const data = {
+      email,
+      password
+    };
+
+    try {
+      await auth.authenticate(data.email, data.password);
+
+      navigate('/profile');
+    } catch (error) {
+      message.error('Invalid email or password');
+    }
+  }
   return (
     <div className='grid grid-cols-2 rounded-full'>
       <div className='bg-gray-50 p-32 '>
@@ -16,7 +42,7 @@ const Login = () => {
                 Faça login para acessar o sistema
               </p>
             </header>
-            <form className='flex flex-col gap-4'>
+            <form className='flex flex-col gap-4' onSubmit={handleLoginUser}>
               <div className='flex flex-col gap-2'>
                 <label
                   className='font-sans font-semibold text-sm text-gray-700'
@@ -28,6 +54,8 @@ const Login = () => {
                   type="email"
                   id='email'
                   placeholder='Digite seu e-mail'
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                 />
               </div>
 
@@ -36,9 +64,9 @@ const Login = () => {
                   className='flex justify-between font-sans font-semibold text-sm text-gray-700'
                   htmlFor="">
                   Senha
-                  <a 
-                  className='text-xs text-green-600 hover:text-green-500 hover:underline'
-                  href="#"
+                  <a
+                    className='text-xs text-green-600 hover:text-green-500 hover:underline'
+                    href="#"
                   >
                     Esqueceu a senha?
                   </a>
@@ -48,11 +76,15 @@ const Login = () => {
                   type="password"
                   id='password'
                   placeholder='Digite sua senha'
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
                 />
               </div>
-              <button className='bg-green-600 text-white  py-2 rounded outline-none hover:bg-green-500 hover:ring-1 hover:ring-green-400 focus:ring-2 focus:ring-green-300 px-4'>
-                  Entrar
-                </button>
+              <button
+                type='submit'
+                className='bg-green-600 text-white  py-2 rounded outline-none hover:bg-green-500 hover:ring-1 hover:ring-green-400 focus:ring-2 focus:ring-green-300 px-4'>
+                Entrar
+              </button>
             </form>
           </main>
         </div>
