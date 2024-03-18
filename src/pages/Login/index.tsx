@@ -1,16 +1,15 @@
-import React, { FormEvent, useState } from 'react';
-import logo from '../assets/logo.svg';
-import { useAuth } from '../context/AuthProvider/useAuth';
+import { FormEvent, FunctionComponent, useState } from 'react';
+import logo from '../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom';
 import { message } from 'antd';
+import { useAuth } from '../../context/AuthProvider/useAuth';
 
-const Login = () => {
+const Login: FunctionComponent = () => {
   const auth = useAuth();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
 
   const handleLoginUser = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,7 +22,7 @@ const Login = () => {
     try {
       await auth.authenticate(data.email, data.password);
 
-      navigate('/profile');
+      navigate('/carriers');
     } catch (error) {
       message.error('Invalid email or password');
     }
