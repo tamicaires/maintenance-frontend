@@ -1,43 +1,33 @@
 import { create } from "zustand";
 
-interface MenuState {
+interface MenuStore {
   activeMenu: boolean;
+  setActiveMenu: (isActive: boolean) => void;
   screenSize?: number;
+  setScreenSize: (size: number) => void;
   isClicked: {
     notification: boolean;
     userProfile: boolean;
   };
-}
-
-interface MenuActions {
-  setActiveMenu: (isActive: boolean) => void;
-  setScreenSize: (size: number | undefined) => void;
-  handleClick: (clicked: keyof MenuState['isClicked']) => void;
-}
-
-interface MenuStore {
-  state: MenuState;
-  actions: MenuActions;
+  handleClick: (clicked: keyof MenuStore['isClicked']) => void;
 }
 
 export const useMenuStore = create<MenuStore>((set) => ({
-  state: {
-    activeMenu: true,
-    screenSize: undefined,
-    isClicked: {
-      notification: false,
-      userProfile: false
-    }
+  activeMenu: true,
+  setActiveMenu: (isActive) => set((state) => ({ ...state, activeMenu: isActive })),
+  screenSize: undefined,
+  setScreenSize: (size) => set((state) => ({ ...state, screenSize: size })),
+  isClicked: {
+    notification: false,
+    userProfile: false
   },
-  actions: {
-    setActiveMenu: (isActive) => set((state) => ({ ...state, activeMenu: isActive })),
-    setScreenSize: (size) => set((state) => ({ ...state, screenSize: size })),
-    handleClick: (clicked) => set((state) => ({
-      ...state,
-      isClicked: {
-        ...state.state.isClicked,
-        [clicked]: !state.state.isClicked[clicked]
-      }
-    }))
-  }
+  handleClick: (clicked) => set((state) => ({
+    ...state,
+    isClicked: {
+      ...state.isClicked,
+      [clicked]: !state.isClicked[clicked]
+    }
+  }))
 }));
+
+
