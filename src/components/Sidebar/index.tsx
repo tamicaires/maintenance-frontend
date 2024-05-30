@@ -84,7 +84,7 @@ const Sidebar: FunctionComponent = () => {
                       onClick={handleCloseSideBar}
                       style={({ isActive }) => ({ backgroundColor: isActive ? currentColor : '' })}
                       className={({ isActive }) => isActive ? activeLink : normalLink}>
-                      <span className='text-white py-1'>{link.icon}</span>
+                      <span className='text-white py-1 hover:text-green-400'>{link.icon}</span>
                     </NavLink>
                   ))}
                 </div>

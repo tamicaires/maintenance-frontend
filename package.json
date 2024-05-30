@@ -10,11 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "@syncfusion/ej2-react-grids": "^25.1.35",
+    "@syncfusion/ej2-react-popups": "^25.1.35",
+    "@tanstack/react-query": "^5.28.4",
     "antd": "^5.15.2",
     "axios": "^1.6.7",
+    "date-fns": "^3.6.0",
+    "export-from-json": "^1.7.4",
+    "lucide-react": "^0.359.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-hook-form": "^7.51.2",
+    "react-icons": "^5.0.1",
+    "react-router-dom": "^6.22.3",
+    "zod": "^3.22.4",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",

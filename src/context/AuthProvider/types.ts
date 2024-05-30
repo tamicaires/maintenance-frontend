@@ -8,7 +8,6 @@ export interface IContext extends IUser {
   logout: () => void;
 }
 
-
 export interface IAuthProvider {
   children: JSX.Element;
 }

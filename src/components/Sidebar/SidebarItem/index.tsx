@@ -1,4 +1,4 @@
-import { Children, FunctionComponent } from "react";
+import { FunctionComponent } from "react";
 
 interface SidebarProps {
   icon: React.ReactNode;
