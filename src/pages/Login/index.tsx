@@ -8,8 +8,8 @@ const Login: FunctionComponent = () => {
   const auth = useAuth();
   const navigate = useNavigate();
 
-  const [ email, setEmail ] = useState("");
-  const [ password, setPassword ] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleLoginUser = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,7 +22,7 @@ const Login: FunctionComponent = () => {
     try {
       await auth.authenticate(data.email, data.password);
 
-      navigate('/carriers');
+      navigate('/transportadoras');
     } catch (error) {
       message.error('Invalid email or password');
     }
