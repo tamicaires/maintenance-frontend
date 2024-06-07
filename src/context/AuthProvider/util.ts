@@ -2,11 +2,11 @@ import { Api } from "../../services/Api/ApiConfig";
 import { IUser } from "./types";
 
 export function setUserLocalStorage(user: IUser | null) {
-  localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem("user", JSON.stringify(user));
 }
 
 export function getUserLocalStorage() {
-  const json = localStorage.getItem('user');
+  const json = localStorage.getItem("user");
 
   if (!json) return null;
 
@@ -17,6 +17,11 @@ export function getUserLocalStorage() {
 
 export function getTokenLocalStorage() {
   const user = getUserLocalStorage();
+
+  if (!user) {
+    return null
+  }
+  
   const token = user.token;
 
   return token;
@@ -24,7 +29,7 @@ export function getTokenLocalStorage() {
 
 export async function LoginRequest(email: string, password: string) {
   try {
-    const request = await Api().post('login', { email, password });
+    const request = await Api().post("login", { email, password });
 
     return request.data;
   } catch (error) {
