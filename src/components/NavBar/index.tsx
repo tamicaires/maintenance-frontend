@@ -8,8 +8,11 @@ import UserProfile from '../Widgets/UseProfile';
 import Notification from '../Widgets/Notification';
 import { useMenuStore } from '../../store/menu/useMenuStore';
 import { useThemeSettingsStore } from '../../store/themeSettings/themeSettings';
+import { getUserLocalStorage } from '../../context/AuthProvider/util';
 
 export const Navbar = () => {
+  const user = getUserLocalStorage();
+  console.log('user do nav', user)
   const {
     activeMenu,
     setActiveMenu,
@@ -55,7 +58,7 @@ export const Navbar = () => {
           {<FaUserCircle  size={20} color={currentColor} />}
           <p>
             <span className='text-gray-400 text-14'>Olá, </span> {' '}
-            <span className='text-gray-40 font-bold ml-1 text-14'>Elves</span>
+            <span className='text-gray-40 font-bold ml-1 text-14'>{user.name}</span>
           </p>
           <MdKeyboardArrowDown className='text-gray-400 text-14' />
         </div>
