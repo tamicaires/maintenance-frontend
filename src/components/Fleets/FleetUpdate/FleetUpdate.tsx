@@ -75,30 +75,30 @@ const FleetUpdate: FunctionComponent = () => {
               </Form.Field>
 
               <Form.Field>
-                <Form.Label htmlFor='first_trailer_plate'>
+                <Form.Label htmlFor='firstTrailerPlate'>
                   1º Reboque
                 </Form.Label>
 
-                <Form.Input type='text' name='first_trailer_plate' />
-                <Form.ErrorMessage field='first_trailer_plate' />
+                <Form.Input type='text' name='firstTrailerPlate' />
+                <Form.ErrorMessage field='firstTrailerPlate' />
               </Form.Field>
 
               <Form.Field>
-                <Form.Label htmlFor='second_trailer_plate'>
+                <Form.Label htmlFor='secondTrailerPlate'>
                   2º Reboque
                 </Form.Label>
 
-                <Form.Input type='text' name='second_trailer_plate' />
-                <Form.ErrorMessage field='second_trailer_plate' />
+                <Form.Input type='text' name='secondTrailerPlate' />
+                <Form.ErrorMessage field='secondTrailerPlate' />
               </Form.Field>
 
               <Form.Field>
-                <Form.Label htmlFor='third_trailer_plate'>
+                <Form.Label htmlFor='thirdTrailerPlate'>
                   3º Reboque
                 </Form.Label>
 
-                <Form.Input type='text' name='third_trailer_plate' />
-                <Form.ErrorMessage field='third_trailer_plate' />
+                <Form.Input type='text' name='thirdTrailerPlate' />
+                <Form.ErrorMessage field='thirdTrailerPlate' />
               </Form.Field>
 
               <Form.Field>

@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { MaintenanceStatus } from './constants';
 
 export const createWorkOrderSchema = z.object({
   fleetId: z.string().min(1, 'O campo Frota é obrigatório'),
@@ -6,6 +7,6 @@ export const createWorkOrderSchema = z.object({
   typeOfMaintenance: z.string().min(1, 'O campo Tipo de manutenção é obrigatório'),
   entryQueue: z.date().optional(),
   entryMaintenance: z.date().optional(),
-  Box: z.string(),
-  status: z.string().default('ATIVO'),
+  Box: z.string().optional(),
+  status: z.nativeEnum(MaintenanceStatus).default(MaintenanceStatus.FILA),
 })

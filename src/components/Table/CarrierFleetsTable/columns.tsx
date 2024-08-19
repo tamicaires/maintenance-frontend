@@ -18,15 +18,15 @@ export const getColumns = () => {
     },
     {
       title: '1º Reboque',
-      dataIndex: 'first_trailer_plate',
+      dataIndex: 'firstTrailerPlate',
     },
     {
       title: '2º Reboque',
-      dataIndex: 'second_trailer_plate',
+      dataIndex: 'secondTrailerPlate',
     },
     {
       title: '2º Reboque',
-      dataIndex: 'third_trailer_plate',
+      dataIndex: 'thirdTrailerPlate',
     },
     {
       title: 'KM',
